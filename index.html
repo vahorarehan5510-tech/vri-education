@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="theme-color" content="#0A192F">
     <title>VRI EDUCATION | Free Online Multi-Course Learning Platform</title>
-    <meta name="description" content="VRI EDUCATION - Learn English and new skills from Zero to Confident. 100% Free video lessons, PDF study materials, practice questions, and MCQ tests.">
+    <meta name="description" content="VRI EDUCATION - Learn practical skills and subjects from Zero to Confident. 100% Free structured video lessons, PDF study materials, practice questions, and MCQ tests.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,8 +34,12 @@
     </script>
     <style>
         html, body { scroll-behavior: smooth; overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
-        .hero-gradient { background: radial-gradient(circle at top center, #EEF4FF 0%, #FFFFFF 75%); }
-        .gold-glow { box-shadow: 0 10px 30px -5px rgba(251, 191, 36, 0.35), 0 6px 16px -4px rgba(10, 25, 47, 0.25); }
+        .hero-gradient { 
+            background: radial-gradient(circle at top center, #DBEAFE 0%, #EFF6FF 45%, #F8FAFC 100%); 
+        }
+        .gold-glow { 
+            box-shadow: 0 12px 35px -5px rgba(251, 191, 36, 0.45), 0 8px 20px -4px rgba(10, 25, 47, 0.3); 
+        }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -55,12 +59,10 @@
                     </div>
                 </a>
 
-                <!-- Desktop Menu -->
-                <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
+                <!-- Clean Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
                     <a href="#" onclick="navigateTo('home'); return false;" class="text-white hover:text-gold-400 transition">Home</a>
                     <a href="#" onclick="navigateTo('courses'); return false;" class="text-slate-200 hover:text-gold-400 transition">All Courses</a>
-                    <a href="#" onclick="navigateTo('materials'); return false;" class="text-slate-200 hover:text-gold-400 transition">Free Study Material</a>
-                    <a href="#" onclick="navigateTo('practice'); return false;" class="text-slate-200 hover:text-gold-400 transition">MCQ Tests</a>
                     <a href="#" onclick="navigateTo('about'); return false;" class="text-slate-200 hover:text-gold-400 transition">About Us</a>
                     <a href="#" onclick="navigateTo('contact'); return false;" class="text-slate-200 hover:text-gold-400 transition">Contact</a>
                 </nav>
@@ -77,96 +79,91 @@
             </div>
         </div>
 
-        <!-- Mobile Slide-Down Drawer Menu -->
+        <!-- Clean Mobile Slide-Down Drawer Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-t border-navy-700 px-4 pt-2 pb-5 space-y-1.5 shadow-2xl">
             <a href="#" onclick="navigateTo('home'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-white hover:bg-navy-700">Home</a>
             <a href="#" onclick="navigateTo('courses'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">All Courses</a>
-            <a href="#" onclick="navigateTo('materials'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">Free Study Material (PDF)</a>
-            <a href="#" onclick="navigateTo('practice'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">Practice &amp; MCQ Tests</a>
             <a href="#" onclick="navigateTo('about'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">About Us</a>
             <a href="#" onclick="navigateTo('contact'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">Contact Us</a>
         </div>
     </header>
 
     <!-- ==================== MAIN CONTENT AREA ==================== -->
-    <main class="flex-grow">
+    <main class="flex-grow flex flex-col justify-center">
 
-        <!-- 1. HOME PAGE -->
+        <!-- 1. ATTRACTIVE GENERAL HOME PAGE (NO COURSES LISTED HERE) -->
         <section id="page-home" class="page-section">
-            <div class="hero-gradient pt-8 pb-14 sm:pt-16 sm:pb-24 px-4 border-b border-slate-200">
+            <div class="hero-gradient pt-8 pb-14 sm:pt-16 sm:pb-20 px-4">
                 <div class="max-w-4xl mx-auto text-center">
+                    
+                    <!-- Top Trust Pill -->
+                    <div class="inline-flex items-center gap-2 bg-white/90 border border-blue-200 px-3.5 py-1.5 rounded-full shadow-sm mb-6">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span class="text-[11px] sm:text-xs font-bold text-navy-800 tracking-wide uppercase">100% Free Multi-Course Platform</span>
+                    </div>
+
+                    <!-- Circular Logo with Gold Glow -->
                     <div class="mb-6 sm:mb-8 flex justify-center">
-                        <div class="w-36 h-36 sm:w-48 sm:h-48 rounded-full p-1.5 bg-gradient-to-tr from-gold-600 via-gold-400 to-navy-800 gold-glow">
+                        <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-1.5 bg-gradient-to-tr from-gold-600 via-gold-400 to-navy-800 gold-glow">
                             <img src="logo.png" alt="VRI EDUCATION" onerror="this.style.display='none'; document.getElementById('hero-fallback').style.display='flex';" class="w-full h-full rounded-full object-cover bg-navy-900">
                             <div id="hero-fallback" style="display:none;" class="w-full h-full rounded-full bg-navy-900 flex flex-col items-center justify-center text-center p-4">
-                                <span class="text-gold-500 font-heading font-extrabold text-2xl">VRI</span>
-                                <span class="text-white font-heading font-bold text-xs tracking-widest mt-1">EDUCATION</span>
+                                <span class="text-gold-500 font-heading font-extrabold text-3xl tracking-wide">VRI</span>
+                                <span class="text-white font-heading font-bold text-[11px] tracking-[0.22em] mt-1">EDUCATION</span>
                             </div>
                         </div>
                     </div>
 
-                    <h1 class="font-heading font-extrabold text-2xl sm:text-5xl text-navy-900 leading-tight mb-3 sm:mb-4">
-                        Learn <span class="text-electric-500">100% Free</span> Skill &amp; English Courses
+                    <!-- General Attractive Headline -->
+                    <h1 class="font-heading font-extrabold text-3xl sm:text-5xl text-navy-900 leading-tight mb-3.5 sm:mb-4">
+                        Learn <span class="text-electric-500">100% Free</span> Skill &amp; Career Courses
                     </h1>
-                    <p class="text-slate-600 text-sm sm:text-xl max-w-2xl mx-auto leading-relaxed mb-7">
-                        Welcome to <strong>VRI EDUCATION</strong> — Free structured video lessons, PDF study materials, practice questions, and MCQ tests from <strong>Zero to Confident</strong>.
+                    <p class="text-slate-600 text-sm sm:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+                        Welcome to <strong>VRI EDUCATION</strong> — Master practical skills and subjects through structured video lessons, PDF study notes, practice exercises, and MCQ tests from <strong>Zero to Confident</strong>.
                     </p>
 
-                    <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
-                        <button onclick="navigateTo('courses')" class="w-full sm:w-auto bg-gradient-to-r from-electric-500 to-navy-800 active:scale-95 text-white font-heading font-bold text-base sm:text-lg px-10 py-4 rounded-xl shadow-lg transition">
-                            Start Learning
+                    <!-- Primary Action Button -->
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-3 max-w-md mx-auto">
+                        <button onclick="navigateTo('courses')" class="w-full bg-gradient-to-r from-electric-500 via-electric-600 to-navy-800 hover:opacity-95 active:scale-95 text-white font-heading font-bold text-base sm:text-lg px-10 py-4 rounded-2xl shadow-xl shadow-blue-900/20 transition flex items-center justify-center gap-2">
+                            <span>Start Learning</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
                         </button>
                     </div>
                 </div>
-            </div>
 
-            <!-- Highlights Grid -->
-            <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 -mt-6 sm:-mt-8">
-                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
-                    <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
-                        <div class="text-electric-500 font-heading font-extrabold text-xl sm:text-3xl">100%</div>
-                        <div class="text-navy-800 font-bold text-xs sm:text-base mt-0.5">Free Education</div>
-                        <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">No fees or login</p>
-                    </div>
-                    <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
-                        <div class="text-navy-800 font-heading font-extrabold text-xl sm:text-3xl">90 Days</div>
-                        <div class="text-navy-800 font-bold text-xs sm:text-base mt-0.5">Structured Path</div>
-                        <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">Step-by-step daily</p>
-                    </div>
-                    <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
-                        <div class="text-gold-600 font-heading font-extrabold text-xl sm:text-3xl">PDF Notes</div>
-                        <div class="text-navy-800 font-bold text-xs sm:text-base mt-0.5">Study Material</div>
-                        <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">Read anytime</p>
-                    </div>
-                    <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
-                        <div class="text-emerald-600 font-heading font-extrabold text-xl sm:text-3xl">MCQ Tests</div>
-                        <div class="text-navy-800 font-bold text-xs sm:text-base mt-0.5">Self Assessment</div>
-                        <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">Instant score</p>
+                <!-- 4 General Feature Cards -->
+                <div class="max-w-5xl mx-auto mt-10 sm:mt-14">
+                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
+                        <div class="bg-white/95 backdrop-blur p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200/80 text-center">
+                            <div class="text-electric-500 font-heading font-extrabold text-xl sm:text-2xl">100%</div>
+                            <div class="text-navy-900 font-bold text-xs sm:text-sm mt-1">Free Education</div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">No fees or login</p>
+                        </div>
+                        <div class="bg-white/95 backdrop-blur p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200/80 text-center">
+                            <div class="text-navy-900 font-heading font-extrabold text-xl sm:text-2xl">Step-by-Step</div>
+                            <div class="text-navy-900 font-bold text-xs sm:text-sm mt-1">Structured Path</div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Day-wise modules</p>
+                        </div>
+                        <div class="bg-white/95 backdrop-blur p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200/80 text-center">
+                            <div class="text-gold-600 font-heading font-extrabold text-xl sm:text-2xl">PDF Notes</div>
+                            <div class="text-navy-900 font-bold text-xs sm:text-sm mt-1">Study Material</div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Read anytime</p>
+                        </div>
+                        <div class="bg-white/95 backdrop-blur p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-200/80 text-center">
+                            <div class="text-emerald-600 font-heading font-extrabold text-xl sm:text-2xl">MCQ Tests</div>
+                            <div class="text-navy-900 font-bold text-xs sm:text-sm mt-1">Self Assessment</div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">Instant score</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Featured Courses Section -->
-            <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-10 sm:py-16">
-                <div class="flex justify-between items-end mb-6 gap-2">
-                    <div>
-                        <span class="text-electric-500 font-bold text-[11px] sm:text-xs uppercase tracking-wider">Featured Programs</span>
-                        <h2 class="font-heading font-extrabold text-xl sm:text-3xl text-navy-900 mt-0.5">Available Free Courses</h2>
-                    </div>
-                    <button onclick="navigateTo('courses')" class="text-electric-500 font-bold text-xs sm:text-sm whitespace-nowrap">
-                        View All &rarr;
-                    </button>
-                </div>
-                <div id="home-courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8"></div>
             </div>
         </section>
 
-        <!-- 2. ALL COURSES PAGE -->
-        <section id="page-courses" class="page-section hidden max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <!-- 2. ALL COURSES PAGE (COURSES APPEAR HERE AFTER CLICKING START LEARNING) -->
+        <section id="page-courses" class="page-section hidden max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12 w-full">
             <div class="mb-6">
                 <span class="text-electric-500 font-bold text-xs uppercase tracking-wider">VRI EDUCATION Catalog</span>
                 <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy-900 mt-0.5">All Courses</h1>
-                <p class="text-slate-600 text-sm mt-1">Tap on a course below to watch lessons, access PDFs, and take MCQ tests.</p>
+                <p class="text-slate-600 text-sm mt-1">Select a course below to watch video lessons, open PDF notes, solve practice questions, and take MCQ tests.</p>
             </div>
 
             <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-sm border border-slate-200 mb-6 space-y-3 md:space-y-0 md:flex md:gap-4 md:justify-between md:items-center">
@@ -184,8 +181,8 @@
             <div id="all-courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8"></div>
         </section>
 
-        <!-- 3. CLEAN COURSE PLAYER PAGE (ONLY VIDEO + ACTION BAR + 6 MODULES) -->
-        <section id="page-course-player" class="page-section hidden max-w-4xl mx-auto px-0 sm:px-6 lg:px-8 py-0 sm:py-8">
+        <!-- 3. COURSE PLAYER PAGE (DIRECT AUTOPLAY VIDEO ON START COURSE) -->
+        <section id="page-course-player" class="page-section hidden max-w-4xl mx-auto px-0 sm:px-6 lg:px-8 py-0 sm:py-8 w-full">
             <div class="sticky top-[56px] sm:static z-30 bg-navy-900 shadow-md sm:rounded-t-2xl overflow-hidden">
                 <div id="player-video-box" class="relative w-full bg-navy-900 aspect-video flex items-center justify-center max-h-[38vh] sm:max-h-none mx-auto"></div>
             </div>
@@ -223,7 +220,6 @@
                             <span class="text-[10px] font-bold text-slate-700 mt-1">MCQ Test</span>
                         </button>
 
-                        <!-- Official YouTube Channel Subscribe Link -->
                         <a href="https://youtube.com/@vri_education?sub_confirmation=1" target="_blank" rel="noopener" class="flex flex-col items-center active:scale-95">
                             <div class="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center shadow-sm">
                                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -251,6 +247,7 @@
 
                 <div id="accordion-modules-container" class="space-y-2.5"></div>
 
+                <!-- End of Course Certificate Banner -->
                 <div class="bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 text-white rounded-2xl p-5 sm:p-6 border-2 border-gold-500/60 shadow-md mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
                         <span class="bg-gold-500 text-navy-900 font-extrabold text-[10px] px-2.5 py-0.5 rounded uppercase tracking-wider">Course Completion Reward</span>
@@ -264,10 +261,10 @@
             </div>
         </section>
 
-        <!-- ==================== DEDICATED SINGLE-LESSON SUB-PAGES ==================== -->
+        <!-- ==================== DEDICATED SINGLE-LESSON SUB-PAGES (INSIDE COURSE) ==================== -->
 
         <!-- 3A. SINGLE LESSON STUDY MATERIAL PDF PAGE -->
-        <section id="page-single-pdf" class="page-section hidden max-w-3xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+        <section id="page-single-pdf" class="page-section hidden max-w-3xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12 w-full">
             <button onclick="openCoursePlayer(currentCourseId, currentDay)" class="text-xs sm:text-sm font-bold text-electric-500 mb-4 inline-flex items-center gap-1 bg-blue-50 px-3 py-2 rounded-xl">
                 &larr; Back to Video Lesson
             </button>
@@ -288,7 +285,7 @@
         </section>
 
         <!-- 3B. SINGLE LESSON PRACTICE QUESTIONS PAGE -->
-        <section id="page-single-practice" class="page-section hidden max-w-3xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+        <section id="page-single-practice" class="page-section hidden max-w-3xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12 w-full">
             <button onclick="openCoursePlayer(currentCourseId, currentDay)" class="text-xs sm:text-sm font-bold text-electric-500 mb-4 inline-flex items-center gap-1 bg-blue-50 px-3 py-2 rounded-xl">
                 &larr; Back to Video Lesson
             </button>
@@ -305,7 +302,7 @@
         </section>
 
         <!-- 3C. SINGLE LESSON MCQ TEST PAGE -->
-        <section id="page-single-mcq" class="page-section hidden max-w-3xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+        <section id="page-single-mcq" class="page-section hidden max-w-3xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12 w-full">
             <button onclick="openCoursePlayer(currentCourseId, currentDay)" class="text-xs sm:text-sm font-bold text-electric-500 mb-4 inline-flex items-center gap-1 bg-blue-50 px-3 py-2 rounded-xl">
                 &larr; Back to Video Lesson
             </button>
@@ -330,41 +327,15 @@
             </div>
         </section>
 
-        <!-- 4. ALL FREE STUDY MATERIAL DIRECTORY PAGE -->
-        <section id="page-materials" class="page-section hidden max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12">
-            <div class="mb-6">
-                <span class="text-electric-500 font-bold text-xs uppercase tracking-wider">PDF Library</span>
-                <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy-900 mt-0.5">Free Study Material (Day 1–90)</h1>
-                <p class="text-slate-600 text-sm mt-1">Tap any day below to open its PDF study notes.</p>
-            </div>
-            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                <div class="p-4 bg-navy-800 text-white font-heading font-bold text-xs sm:text-sm flex justify-between items-center">
-                    <span>90 Days English Learning Course</span>
-                    <span class="text-gold-400">100% Free</span>
-                </div>
-                <div id="materials-list" class="divide-y divide-slate-200"></div>
-            </div>
-        </section>
-
-        <!-- 5. ALL PRACTICE & MCQ HUB PAGE -->
-        <section id="page-practice" class="page-section hidden max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12">
-            <div class="mb-6">
-                <span class="text-electric-500 font-bold text-xs uppercase tracking-wider">Interactive Quiz Zone</span>
-                <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy-900 mt-0.5">Practice &amp; MCQ Tests</h1>
-                <p class="text-slate-600 text-sm mt-1">Select any day to open its dedicated MCQ test page.</p>
-            </div>
-            <div id="practice-hub-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5"></div>
-        </section>
-
-        <!-- 6. END-OF-COURSE CERTIFICATE GENERATOR PAGE -->
-        <section id="page-certificate" class="page-section hidden max-w-4xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+        <!-- 4. END-OF-COURSE CERTIFICATE GENERATOR PAGE -->
+        <section id="page-certificate" class="page-section hidden max-w-4xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12 w-full">
             <button onclick="openCoursePlayer('english-90', 90)" class="text-xs sm:text-sm font-bold text-electric-500 mb-4 inline-flex items-center gap-1 bg-blue-50 px-3 py-2 rounded-xl">
                 &larr; Back to Course
             </button>
             <div class="text-center mb-6">
                 <span class="bg-gold-500/20 text-navy-900 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Course Completion Certificate</span>
                 <h1 class="font-heading font-extrabold text-2xl sm:text-4xl text-navy-900 mt-2">Download Your Course Certificate</h1>
-                <p class="text-slate-600 text-sm sm:text-base mt-1">Congratulations on completing the <strong>90 Days English Learning Course</strong>! Enter your name below.</p>
+                <p class="text-slate-600 text-sm sm:text-base mt-1">Congratulations on completing the course! Enter your full name below.</p>
             </div>
 
             <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200 mb-6">
@@ -386,15 +357,15 @@
             </div>
         </section>
 
-        <!-- 7. ABOUT US PAGE -->
-        <section id="page-about" class="page-section hidden max-w-4xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+        <!-- 5. ABOUT US PAGE -->
+        <section id="page-about" class="page-section hidden max-w-4xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12 w-full">
             <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200">
                 <span class="text-electric-500 font-bold text-xs uppercase tracking-wider">About Our Platform</span>
                 <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy-900 mt-1 mb-5">About VRI EDUCATION</h1>
                 <div class="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
-                    <p><strong>VRI EDUCATION</strong> is a dedicated online educational platform built with a simple mission: to make quality, structured education freely accessible to every student and beginner.</p>
-                    <h2 class="font-heading font-bold text-lg sm:text-xl text-navy-900 pt-2">Purpose of Our Courses</h2>
-                    <p>Our flagship <strong>90 Days English Learning Course</strong> provides a clear day-by-day roadmap taking beginners from <strong>Zero to Confident</strong> through structured YouTube lessons, PDF study materials, practice exercises, and MCQ tests.</p>
+                    <p><strong>VRI EDUCATION</strong> is a dedicated online multi-course educational platform built with a simple mission: to make quality, structured skill and academic education freely accessible to every student and beginner.</p>
+                    <h2 class="font-heading font-bold text-lg sm:text-xl text-navy-900 pt-2">How VRI EDUCATION Works</h2>
+                    <p>Every course on our platform provides a clear step-by-step roadmap taking beginners from <strong>Zero to Confident</strong> through structured video lessons, PDF study notes, practice exercises, and interactive MCQ tests.</p>
                     <div class="bg-slate-50 border-l-4 border-gold-500 p-4 rounded-r-xl mt-5">
                         <p class="font-semibold text-navy-900">100% Free Forever Promise</p>
                         <p class="text-xs sm:text-sm mt-1">All courses and study materials on VRI EDUCATION are completely free without mandatory login or subscription charges.</p>
@@ -403,8 +374,8 @@
             </div>
         </section>
 
-        <!-- 8. CONTACT PAGE -->
-        <section id="page-contact" class="page-section hidden max-w-4xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+        <!-- 6. CONTACT PAGE -->
+        <section id="page-contact" class="page-section hidden max-w-4xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12 w-full">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-navy-800 text-white rounded-2xl p-6 sm:p-8">
                     <span class="text-gold-400 font-bold text-xs uppercase tracking-wider">Get In Touch</span>
@@ -449,7 +420,7 @@
 
     </main>
 
-    <!-- ==================== MOBILE BOTTOM APP NAVIGATION BAR ==================== -->
+    <!-- ==================== CLEAN MOBILE BOTTOM APP NAVIGATION BAR ==================== -->
     <nav class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_15px_rgba(0,0,0,0.06)] grid grid-cols-4 h-16">
         <button onclick="navigateTo('home')" class="flex flex-col items-center justify-center text-navy-800 active:bg-slate-100">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
@@ -459,18 +430,18 @@
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
             <span class="text-[10px] font-bold mt-0.5">Courses</span>
         </button>
-        <button onclick="navigateTo('materials')" class="flex flex-col items-center justify-center text-navy-800 active:bg-slate-100">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
-            <span class="text-[10px] font-bold mt-0.5">PDF Notes</span>
+        <button onclick="navigateTo('about')" class="flex flex-col items-center justify-center text-navy-800 active:bg-slate-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="text-[10px] font-bold mt-0.5">About</span>
         </button>
-        <button onclick="navigateTo('practice')" class="flex flex-col items-center justify-center text-navy-800 active:bg-slate-100">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            <span class="text-[10px] font-bold mt-0.5">MCQ Test</span>
+        <button onclick="navigateTo('contact')" class="flex flex-col items-center justify-center text-navy-800 active:bg-slate-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <span class="text-[10px] font-bold mt-0.5">Contact</span>
         </button>
     </nav>
 
     <!-- ==================== FOOTER ==================== -->
-    <footer class="bg-navy-900 text-slate-300 border-t border-navy-700 mt-12">
+    <footer class="bg-navy-900 text-slate-300 border-t border-navy-700 mt-auto">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
@@ -478,16 +449,15 @@
                         <img src="logo.png" alt="VRI EDUCATION" onerror="this.style.display='none'" class="w-9 h-9 rounded-full border border-gold-500">
                         <span class="font-heading font-extrabold text-base text-white">VRI <span class="text-gold-500">EDUCATION</span></span>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Zero to Confident — A free multi-course educational platform providing structured video lessons, PDF study materials, and interactive MCQ tests.</p>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Zero to Confident — A free multi-course educational platform providing structured video lessons, PDF study materials, and interactive MCQ tests inside each course.</p>
                 </div>
                 <div>
                     <h3 class="font-heading font-bold text-white text-xs uppercase tracking-wider mb-2.5">Quick Links</h3>
                     <ul class="space-y-1.5 text-xs sm:text-sm">
                         <li><a href="#" onclick="navigateTo('home'); return false;" class="hover:text-gold-400">Home</a></li>
                         <li><a href="#" onclick="navigateTo('courses'); return false;" class="hover:text-gold-400">All Courses</a></li>
-                        <li><a href="#" onclick="navigateTo('materials'); return false;" class="hover:text-gold-400">Free Study Material</a></li>
-                        <li><a href="#" onclick="navigateTo('practice'); return false;" class="hover:text-gold-400">MCQ Tests</a></li>
                         <li><a href="#" onclick="navigateTo('about'); return false;" class="hover:text-gold-400">About Us</a></li>
+                        <li><a href="#" onclick="navigateTo('contact'); return false;" class="hover:text-gold-400">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -540,7 +510,6 @@
                         };
                     }
                 });
-                renderHomeCourses();
                 if (!document.getElementById('page-courses').classList.contains('hidden')) renderAllCourses();
                 if (!document.getElementById('page-course-player').classList.contains('hidden')) openCoursePlayer(currentCourseId, currentDay);
             } catch (err) {
@@ -659,10 +628,7 @@
             if (target) target.classList.remove('hidden');
             window.scrollTo(0, 0);
 
-            if (pageId === 'home') renderHomeCourses();
             if (pageId === 'courses') renderAllCourses();
-            if (pageId === 'materials') renderStudyMaterials();
-            if (pageId === 'practice') renderPracticeHub();
             if (pageId === 'certificate') drawCertificate();
         }
 
@@ -726,10 +692,6 @@
             `;
         }
 
-        function renderHomeCourses() {
-            document.getElementById('home-courses-grid').innerHTML = COURSES_DATA.map(createCourseCardHTML).join('');
-        }
-
         function setCourseCategory(cat, btnEl) {
             currentCategory = cat;
             document.querySelectorAll('.cat-btn').forEach(btn => {
@@ -751,7 +713,7 @@
             document.getElementById('all-courses-grid').innerHTML = filtered.map(createCourseCardHTML).join('');
         }
 
-        /* ==================== COURSE PLAYER (CLEAN 6 MODULES ONLY) ==================== */
+        /* ==================== COURSE PLAYER (DIRECT AUTOPLAY VIDEO) ==================== */
         function openCoursePlayer(courseId, dayNum) {
             currentCourseId = courseId;
             currentDay = dayNum;
@@ -762,7 +724,7 @@
 
             const videoBox = document.getElementById('player-video-box');
             if (lesson.youtubeEmbedId) {
-                videoBox.innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${lesson.youtubeEmbedId}" title="${lesson.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                videoBox.innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${lesson.youtubeEmbedId}?autoplay=1&rel=0" title="${lesson.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
             } else {
                 videoBox.innerHTML = `
                     <div class="text-center p-5 text-slate-300">
@@ -918,46 +880,6 @@
             scoreBox.classList.remove('hidden');
         }
 
-        /* ==================== DIRECTORY PAGES ==================== */
-        function renderStudyMaterials() {
-            let html = '';
-            for (let d = 1; d <= 90; d++) {
-                const lesson = getLessonData(d);
-                html += `
-                    <div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                        <div>
-                            <span class="text-[11px] font-bold text-electric-500 uppercase">Day ${d} PDF</span>
-                            <h3 class="font-bold text-navy-900 text-xs sm:text-sm mt-0.5">${lesson.title}</h3>
-                        </div>
-                        <div>
-                            ${lesson.pdfUrl 
-                                ? `<a href="${lesson.pdfUrl}" target="_blank" rel="noopener" class="block w-full sm:w-auto text-center bg-navy-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">Open PDF &rarr;</a>`
-                                : `<button onclick="openLessonPDFPage(${d})" class="w-full sm:w-auto bg-slate-100 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-xl">View PDF Page</button>`
-                            }
-                        </div>
-                    </div>
-                `;
-            }
-            document.getElementById('materials-list').innerHTML = html;
-        }
-
-        function renderPracticeHub() {
-            let html = '';
-            for (let d = 1; d <= 90; d++) {
-                const lesson = getLessonData(d);
-                html += `
-                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between gap-3">
-                        <div class="min-w-0">
-                            <span class="text-[11px] font-bold text-gold-600 uppercase">Day ${d} Quiz</span>
-                            <h3 class="font-heading font-bold text-xs sm:text-sm text-navy-900 truncate mt-0.5">${lesson.title}</h3>
-                        </div>
-                        <button onclick="openLessonMCQPage(${d})" class="bg-electric-500 active:scale-95 text-white text-xs font-bold px-4 py-2.5 rounded-xl shrink-0">Start Test</button>
-                    </div>
-                `;
-            }
-            document.getElementById('practice-hub-list').innerHTML = html;
-        }
-
         /* ==================== END-OF-COURSE CERTIFICATE GENERATOR ==================== */
         function drawCertificate() {
             const canvas = document.getElementById('certificate-canvas');
@@ -1058,7 +980,7 @@
             link.click();
         }
 
-        renderHomeCourses();
+        // Initial Sync
         syncFromGoogleSheet();
     </script>
 </body>
