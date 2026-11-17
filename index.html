@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#0A192F">
+    <title>VRI EDUCATION | Free Online Multi-Course Learning Platform</title>
+    <meta name="description" content="VRI EDUCATION - Learn English and new skills from Zero to Confident. 100% Free video lessons, PDF study materials, practice questions, and MCQ tests.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700;800&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: { 900: '#060F1E', 800: '#0A192F', 700: '#112240' },
+                        gold: { 400: '#FACC15', 500: '#FBBF24', 600: '#D97706' },
+                        electric: { 500: '#2563EB', 600: '#1D4ED8' }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body { scroll-behavior: smooth; overflow-x: hidden; -webkit-tap-highlight-color: transparent; }
+        .hero-gradient { background: radial-gradient(circle at top center, #EEF4FF 0%, #FFFFFF 75%); }
+        .gold-glow { box-shadow: 0 10px 30px -5px rgba(251, 191, 36, 0.35), 0 6px 16px -4px rgba(10, 25, 47, 0.25); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased flex flex-col min-h-screen pb-16 md:pb-0">
+
+    <!-- ==================== TOP NAVIGATION BAR ==================== -->
+    <header class="sticky top-0 z-50 bg-navy-800 text-white shadow-md border-b border-navy-700">
+        <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-2.5 sm:py-3">
+                <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-2.5">
+                    <img id="brand-logo-img" src="logo.png" alt="VRI EDUCATION Logo" onerror="this.style.display='none'; document.getElementById('fallback-logo').style.display='flex';" class="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover border-2 border-gold-500 shadow">
+                    <div id="fallback-logo" style="display:none;" class="w-10 h-10 rounded-full bg-navy-900 border-2 border-gold-500 items-center justify-center text-gold-500 font-heading font-extrabold text-xs">VRI</div>
+                    <div>
+                        <span class="font-heading font-extrabold text-base sm:text-xl tracking-wide text-white block leading-none">VRI <span class="text-gold-500">EDUCATION</span></span>
+                        <span class="text-[10px] sm:text-[11px] text-slate-300 tracking-widest uppercase">Zero to Confident</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <nav class="hidden md:flex items-center space-x-7 text-sm font-medium">
+                    <a href="#" onclick="navigateTo('home'); return false;" class="text-white hover:text-gold-400 transition">Home</a>
+                    <a href="#" onclick="navigateTo('courses'); return false;" class="text-slate-200 hover:text-gold-400 transition">All Courses</a>
+                    <a href="#" onclick="navigateTo('materials'); return false;" class="text-slate-200 hover:text-gold-400 transition">Free Study Material</a>
+                    <a href="#" onclick="navigateTo('practice'); return false;" class="text-slate-200 hover:text-gold-400 transition">MCQ Tests</a>
+                    <a href="#" onclick="navigateTo('about'); return false;" class="text-slate-200 hover:text-gold-400 transition">About Us</a>
+                    <a href="#" onclick="navigateTo('contact'); return false;" class="text-slate-200 hover:text-gold-400 transition">Contact</a>
+                </nav>
+
+                <!-- CTA & Mobile Hamburger -->
+                <div class="flex items-center gap-2">
+                    <button onclick="navigateTo('courses')" class="hidden sm:inline-flex items-center bg-gold-500 hover:bg-gold-400 text-navy-900 font-heading font-bold text-sm px-4 py-2.5 rounded-lg shadow transition">
+                        Start Learning
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-xl text-white bg-navy-700/80 active:bg-navy-900 border border-navy-700" aria-label="Open Menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Slide-Down Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-t border-navy-700 px-4 pt-2 pb-5 space-y-1.5 shadow-2xl">
+            <a href="#" onclick="navigateTo('home'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-white hover:bg-navy-700">Home</a>
+            <a href="#" onclick="navigateTo('courses'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">All Courses</a>
+            <a href="#" onclick="navigateTo('materials'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">Free Study Material (PDF)</a>
+            <a href="#" onclick="navigateTo('practice'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">Practice &amp; MCQ Tests</a>
+            <a href="#" onclick="navigateTo('about'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">About Us</a>
+            <a href="#" onclick="navigateTo('contact'); toggleMobileMenu(); return false;" class="block px-3.5 py-3 rounded-xl text-base font-semibold text-slate-200 hover:bg-navy-700">Contact Us</a>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTENT AREA ==================== -->
+    <main class="flex-grow">
+
+        <!-- 1. HOME PAGE -->
+        <section id="page-home" class="page-section">
+            <div class="hero-gradient pt-8 pb-14 sm:pt-16 sm:pb-24 px-4 border-b border-slate-200">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="mb-6 sm:mb-8 flex justify-center">
+                        <div class="w-36 h-36 sm:w-48 sm:h-48 rounded-full p-1.5 bg-gradient-to-tr from-gold-600 via-gold-400 to-navy-800 gold-glow">
+                            <img src="logo.png" alt="VRI EDUCATION" onerror="this.style.display='none'; document.getElementById('hero-fallback').style.display='flex';" class="w-full h-full rounded-full object-cover bg-navy-900">
+                            <div id="hero-fallback" style="display:none;" class="w-full h-full rounded-full bg-navy-900 flex flex-col items-center justify-center text-center p-4">
+                                <span class="text-gold-500 font-heading font-extrabold text-2xl">VRI</span>
+                                <span class="text-white font-heading font-bold text-xs tracking-widest mt-1">EDUCATION</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h1 class="font-heading font-extrabold text-2xl sm:text-5xl text-navy-900 leading-tight mb-3 sm:mb-4">
+                        Learn <span class="text-electric-500">100% Free</span> Skill &amp; English Courses
+                    </h1>
+                    <p class="text-slate-600 text-sm sm:text-xl max-w-2xl mx-auto leading-relaxed mb-7">
+                        Welcome to <strong>VRI EDUCATION</strong> — Free structured video lessons, PDF study materials, practice questions, and MCQ tests from <strong>Zero to Confident</strong>.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-3">
+                        <button onclick="navigateTo('courses')" class="w-full sm:w-auto bg-gradient-to-r from-electric-500 to-navy-800 active:scale-95 text-white font-heading font-bold text-base sm:text-lg px-10 py-4 rounded-xl shadow-lg transition">
+                            Start Learning
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlights Grid -->
+            <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 -mt-6 sm:-mt-8">
+                <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
+                    <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
+                        <div class="text-electric-500 font-heading font-extrabold text-xl sm:text-3xl">100%</div>
+                        <div class="text-navy-800 font-bold text-xs sm:text-base mt-0.5">Free Education</div>
+                        <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">No fees or login</p>
+                    </div>
+                    <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
+                        <div class="text-navy-800 font-heading font-extrabold text-xl sm:text-3xl">90 Days</div>
+                        <div class="text-navy-800 font-bold text-xs sm:text-base mt-0.5">Structured Path</div>
+                        <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">Step-by-step daily</p>
+                    </div>
+                    <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
+                        <div class="text-gold-600 font-heading font-extrabold text-xl sm:text-3xl">PDF Notes</div>
+                        <div class="text-navy-800 font-bold text-xs sm:text-base mt-0.5">Study Material</div>
+                        <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">Read anytime</p>
+                    </div>
+                    <div class="bg-white p-4 sm:p-5 rounded-2xl shadow-sm border border-slate-100 text-center">
+                        <div class="text-emerald-600 font-heading font-extrabold text-xl sm:text-3xl">MCQ Tests</div>
+                        <div class="text-navy-800 font-bold text-xs sm:text-base mt-0.5">Self Assessment</div>
+                        <p class="text-[11px] sm:text-xs text-slate-500 mt-0.5">Instant score</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Courses Section -->
+            <div class="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-10 sm:py-16">
+                <div class="flex justify-between items-end mb-6 gap-2">
+                    <div>
+                        <span class="text-electric-500 font-bold text-[11px] sm:text-xs uppercase tracking-wider">Featured Programs</span>
+                        <h2 class="font-heading font-extrabold text-xl sm:text-3xl text-navy-900 mt-0.5">Available Free Courses</h2>
+                    </div>
+                    <button onclick="navigateTo('courses')" class="text-electric-500 font-bold text-xs sm:text-sm whitespace-nowrap">
+                        View All &rarr;
+                    </button>
+                </div>
+                <div id="home-courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8"></div>
+            </div>
+        </section>
+
+        <!-- 2. ALL COURSES PAGE -->
+        <section id="page-courses" class="page-section hidden max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="mb-6">
+                <span class="text-electric-500 font-bold text-xs uppercase tracking-wider">VRI EDUCATION Catalog</span>
+                <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy-900 mt-0.5">All Courses</h1>
+                <p class="text-slate-600 text-sm mt-1">Tap on a course below to watch lessons, access PDFs, and take MCQ tests.</p>
+            </div>
+
+            <div class="bg-white p-3.5 sm:p-4 rounded-2xl shadow-sm border border-slate-200 mb-6 space-y-3 md:space-y-0 md:flex md:gap-4 md:justify-between md:items-center">
+                <div class="w-full md:w-96 relative">
+                    <input type="text" id="course-search" oninput="renderAllCourses()" placeholder="Search courses..." class="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-electric-500">
+                    <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                </div>
+                <div class="flex gap-2 overflow-x-auto no-scrollbar pb-1 md:pb-0">
+                    <button onclick="setCourseCategory('All', this)" class="cat-btn shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold bg-navy-800 text-white">All Courses</button>
+                    <button onclick="setCourseCategory('Language', this)" class="cat-btn shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700">Language</button>
+                    <button onclick="setCourseCategory('Upcoming', this)" class="cat-btn shrink-0 px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 text-slate-700">Upcoming Subjects</button>
+                </div>
+            </div>
+
+            <div id="all-courses-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8"></div>
+        </section>
+
+        <!-- 3. CLEAN COURSE PLAYER PAGE (ONLY VIDEO + ACTION BAR + 6 MODULES) -->
+        <section id="page-course-player" class="page-section hidden max-w-4xl mx-auto px-0 sm:px-6 lg:px-8 py-0 sm:py-8">
+            <div class="sticky top-[56px] sm:static z-30 bg-navy-900 shadow-md sm:rounded-t-2xl overflow-hidden">
+                <div id="player-video-box" class="relative w-full bg-navy-900 aspect-video flex items-center justify-center max-h-[38vh] sm:max-h-none mx-auto"></div>
+            </div>
+
+            <div class="bg-white sm:rounded-b-2xl shadow-sm border-b sm:border border-slate-200 mb-5">
+                <div class="px-3 py-3 bg-white border-b border-slate-200 flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
+                    <div class="flex items-center gap-2 shrink-0">
+                        <button id="player-prev-btn" title="Previous Lesson" class="w-11 h-11 rounded-xl bg-electric-500 active:scale-95 text-white flex items-center justify-center shadow-sm">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"/></svg>
+                        </button>
+                        <button id="player-next-btn" title="Next Lesson" class="w-11 h-11 rounded-xl bg-electric-500 active:scale-95 text-white flex items-center justify-center shadow-sm">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"/></svg>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center gap-4 sm:gap-7 shrink-0 pr-1">
+                        <button onclick="openLessonPDFPage(currentDay)" class="flex flex-col items-center active:scale-95">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-700 mt-1">Notes PDF</span>
+                        </button>
+
+                        <button onclick="openLessonPracticePage(currentDay)" class="flex flex-col items-center active:scale-95">
+                            <div class="w-10 h-10 rounded-xl bg-navy-800 text-white flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-700 mt-1">Practice</span>
+                        </button>
+
+                        <button onclick="openLessonMCQPage(currentDay)" class="flex flex-col items-center active:scale-95">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500 text-navy-900 flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-700 mt-1">MCQ Test</span>
+                        </button>
+
+                        <!-- Official YouTube Channel Subscribe Link -->
+                        <a href="https://youtube.com/@vri_education?sub_confirmation=1" target="_blank" rel="noopener" class="flex flex-col items-center active:scale-95">
+                            <div class="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center shadow-sm">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                            </div>
+                            <span class="text-[10px] font-bold text-slate-700 mt-1">Subscribe</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="p-4 sm:p-6">
+                    <div class="flex items-center justify-between gap-2 mb-1">
+                        <span id="player-active-badge" class="text-[11px] font-bold text-electric-500 uppercase tracking-wider">DAY 1 &bull; MODULE 1</span>
+                        <button onclick="navigateTo('courses')" class="text-xs font-bold text-slate-500 py-1 px-2.5 rounded-lg bg-slate-100">&larr; All Courses</button>
+                    </div>
+                    <h1 id="player-lesson-title" class="font-heading font-extrabold text-lg sm:text-2xl text-navy-900 leading-snug"></h1>
+                    <p class="text-slate-500 text-xs sm:text-sm mt-1">90 Days English Learning Course &bull; Playlist: 90 Lessons</p>
+                </div>
+            </div>
+
+            <div class="px-3.5 sm:px-0 space-y-3">
+                <div class="flex items-center justify-between px-1">
+                    <h2 class="font-heading font-bold text-base sm:text-lg text-navy-900">Course Content (6 Modules)</h2>
+                    <span class="text-[11px] font-bold text-emerald-700 bg-emerald-100 px-2.5 py-0.5 rounded-full">100% Free</span>
+                </div>
+
+                <div id="accordion-modules-container" class="space-y-2.5"></div>
+
+                <div class="bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 text-white rounded-2xl p-5 sm:p-6 border-2 border-gold-500/60 shadow-md mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                        <span class="bg-gold-500 text-navy-900 font-extrabold text-[10px] px-2.5 py-0.5 rounded uppercase tracking-wider">Course Completion Reward</span>
+                        <h3 class="font-heading font-extrabold text-lg sm:text-xl text-white mt-1.5">Completed All 90 Days?</h3>
+                        <p class="text-slate-300 text-xs sm:text-sm mt-0.5">Claim your official <strong>VRI EDUCATION</strong> completion certificate for free.</p>
+                    </div>
+                    <button onclick="navigateTo('certificate')" class="w-full sm:w-auto bg-gold-500 hover:bg-gold-400 active:scale-95 text-navy-900 font-heading font-bold text-sm px-6 py-3.5 rounded-xl shadow transition shrink-0">
+                        Get Certificate &rarr;
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==================== DEDICATED SINGLE-LESSON SUB-PAGES ==================== -->
+
+        <!-- 3A. SINGLE LESSON STUDY MATERIAL PDF PAGE -->
+        <section id="page-single-pdf" class="page-section hidden max-w-3xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+            <button onclick="openCoursePlayer(currentCourseId, currentDay)" class="text-xs sm:text-sm font-bold text-electric-500 mb-4 inline-flex items-center gap-1 bg-blue-50 px-3 py-2 rounded-xl">
+                &larr; Back to Video Lesson
+            </button>
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <span id="single-pdf-badge" class="text-xs font-bold text-emerald-600 uppercase tracking-wider">DAY 1 STUDY MATERIAL</span>
+                <h1 id="single-pdf-title" class="font-heading font-extrabold text-xl sm:text-2xl text-navy-900 mt-1"></h1>
+                <p id="single-pdf-intro" class="text-slate-600 text-sm mt-2 leading-relaxed"></p>
+
+                <div class="mt-6 p-6 rounded-2xl bg-navy-800 text-white text-center">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center mx-auto mb-3 shadow">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h2 class="font-heading font-bold text-lg">Official Lesson PDF Notes</h2>
+                    <p class="text-slate-300 text-xs sm:text-sm mt-1 mb-5">Click below to view or download your study material PDF.</p>
+                    <div id="single-pdf-btn-container"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3B. SINGLE LESSON PRACTICE QUESTIONS PAGE -->
+        <section id="page-single-practice" class="page-section hidden max-w-3xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+            <button onclick="openCoursePlayer(currentCourseId, currentDay)" class="text-xs sm:text-sm font-bold text-electric-500 mb-4 inline-flex items-center gap-1 bg-blue-50 px-3 py-2 rounded-xl">
+                &larr; Back to Video Lesson
+            </button>
+            <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                <span id="single-prac-badge" class="text-xs font-bold text-electric-500 uppercase tracking-wider">DAY 1 PRACTICE</span>
+                <h1 id="single-prac-title" class="font-heading font-extrabold text-xl sm:text-2xl text-navy-900 mt-1 mb-1"></h1>
+                <p class="text-slate-500 text-xs sm:text-sm mb-5">Read aloud and write these practice questions in your notebook.</p>
+                <div id="single-prac-list" class="space-y-3"></div>
+                <div class="mt-6 pt-4 border-t border-slate-200 flex justify-between items-center">
+                    <button onclick="openCoursePlayer(currentCourseId, currentDay)" class="text-xs sm:text-sm font-bold text-slate-600">&larr; Back to Video</button>
+                    <button onclick="openLessonMCQPage(currentDay)" class="bg-gold-500 text-navy-900 font-heading font-bold text-xs sm:text-sm px-5 py-3 rounded-xl shadow">Next: MCQ Test &rarr;</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3C. SINGLE LESSON MCQ TEST PAGE -->
+        <section id="page-single-mcq" class="page-section hidden max-w-3xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+            <button onclick="openCoursePlayer(currentCourseId, currentDay)" class="text-xs sm:text-sm font-bold text-electric-500 mb-4 inline-flex items-center gap-1 bg-blue-50 px-3 py-2 rounded-xl">
+                &larr; Back to Video Lesson
+            </button>
+            <div class="bg-white rounded-2xl p-5 sm:p-8 shadow-sm border border-slate-200">
+                <div class="flex justify-between items-start gap-2 mb-4">
+                    <div>
+                        <span id="single-mcq-badge" class="text-xs font-bold text-gold-600 uppercase tracking-wider">DAY 1 MCQ TEST</span>
+                        <h1 id="single-mcq-title" class="font-heading font-extrabold text-xl sm:text-2xl text-navy-900 mt-1"></h1>
+                    </div>
+                    <span class="bg-gold-500/20 text-navy-900 font-bold text-xs px-3 py-1 rounded-full shrink-0">Quiz</span>
+                </div>
+
+                <div id="single-mcq-list" class="space-y-4"></div>
+
+                <div class="mt-6 pt-4 border-t border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="grid grid-cols-2 sm:flex gap-2.5 w-full sm:w-auto">
+                        <button onclick="submitSingleMCQ()" class="bg-electric-500 active:scale-95 text-white font-heading font-bold text-sm px-5 py-3.5 rounded-xl shadow text-center">Submit Answer</button>
+                        <button onclick="openLessonMCQPage(currentDay)" class="bg-slate-100 active:scale-95 text-slate-700 font-bold text-sm px-4 py-3.5 rounded-xl text-center">Retake Test</button>
+                    </div>
+                    <div id="single-mcq-score" class="hidden font-heading font-extrabold text-base text-center text-navy-900 bg-gold-400/30 px-4 py-2.5 rounded-xl"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ALL FREE STUDY MATERIAL DIRECTORY PAGE -->
+        <section id="page-materials" class="page-section hidden max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="mb-6">
+                <span class="text-electric-500 font-bold text-xs uppercase tracking-wider">PDF Library</span>
+                <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy-900 mt-0.5">Free Study Material (Day 1–90)</h1>
+                <p class="text-slate-600 text-sm mt-1">Tap any day below to open its PDF study notes.</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                <div class="p-4 bg-navy-800 text-white font-heading font-bold text-xs sm:text-sm flex justify-between items-center">
+                    <span>90 Days English Learning Course</span>
+                    <span class="text-gold-400">100% Free</span>
+                </div>
+                <div id="materials-list" class="divide-y divide-slate-200"></div>
+            </div>
+        </section>
+
+        <!-- 5. ALL PRACTICE & MCQ HUB PAGE -->
+        <section id="page-practice" class="page-section hidden max-w-5xl mx-auto px-3.5 sm:px-6 lg:px-8 py-8 sm:py-12">
+            <div class="mb-6">
+                <span class="text-electric-500 font-bold text-xs uppercase tracking-wider">Interactive Quiz Zone</span>
+                <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy-900 mt-0.5">Practice &amp; MCQ Tests</h1>
+                <p class="text-slate-600 text-sm mt-1">Select any day to open its dedicated MCQ test page.</p>
+            </div>
+            <div id="practice-hub-list" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5"></div>
+        </section>
+
+        <!-- 6. END-OF-COURSE CERTIFICATE GENERATOR PAGE -->
+        <section id="page-certificate" class="page-section hidden max-w-4xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+            <button onclick="openCoursePlayer('english-90', 90)" class="text-xs sm:text-sm font-bold text-electric-500 mb-4 inline-flex items-center gap-1 bg-blue-50 px-3 py-2 rounded-xl">
+                &larr; Back to Course
+            </button>
+            <div class="text-center mb-6">
+                <span class="bg-gold-500/20 text-navy-900 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-wider">Course Completion Certificate</span>
+                <h1 class="font-heading font-extrabold text-2xl sm:text-4xl text-navy-900 mt-2">Download Your Course Certificate</h1>
+                <p class="text-slate-600 text-sm sm:text-base mt-1">Congratulations on completing the <strong>90 Days English Learning Course</strong>! Enter your name below.</p>
+            </div>
+
+            <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-slate-200 mb-6">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 items-end">
+                    <div class="sm:col-span-2">
+                        <label class="block text-xs font-bold text-slate-700 uppercase mb-1.5">Student Full Name</label>
+                        <input type="text" id="cert-student-name" oninput="drawCertificate()" placeholder="Enter your full name..." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-base font-semibold text-navy-900 focus:outline-none focus:border-electric-500">
+                    </div>
+                    <div>
+                        <button onclick="downloadCertificate()" class="w-full bg-gradient-to-r from-electric-500 to-navy-800 active:scale-95 text-white font-heading font-bold py-3.5 px-5 rounded-xl shadow-md transition">
+                            Download PNG
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white p-3 sm:p-5 rounded-2xl shadow-lg border border-slate-200">
+                <canvas id="certificate-canvas" width="1200" height="850" class="w-full h-auto rounded-xl border border-slate-300 shadow-inner"></canvas>
+            </div>
+        </section>
+
+        <!-- 7. ABOUT US PAGE -->
+        <section id="page-about" class="page-section hidden max-w-4xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+            <div class="bg-white rounded-2xl p-6 sm:p-10 shadow-sm border border-slate-200">
+                <span class="text-electric-500 font-bold text-xs uppercase tracking-wider">About Our Platform</span>
+                <h1 class="font-heading font-extrabold text-2xl sm:text-3xl text-navy-900 mt-1 mb-5">About VRI EDUCATION</h1>
+                <div class="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
+                    <p><strong>VRI EDUCATION</strong> is a dedicated online educational platform built with a simple mission: to make quality, structured education freely accessible to every student and beginner.</p>
+                    <h2 class="font-heading font-bold text-lg sm:text-xl text-navy-900 pt-2">Purpose of Our Courses</h2>
+                    <p>Our flagship <strong>90 Days English Learning Course</strong> provides a clear day-by-day roadmap taking beginners from <strong>Zero to Confident</strong> through structured YouTube lessons, PDF study materials, practice exercises, and MCQ tests.</p>
+                    <div class="bg-slate-50 border-l-4 border-gold-500 p-4 rounded-r-xl mt-5">
+                        <p class="font-semibold text-navy-900">100% Free Forever Promise</p>
+                        <p class="text-xs sm:text-sm mt-1">All courses and study materials on VRI EDUCATION are completely free without mandatory login or subscription charges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CONTACT PAGE -->
+        <section id="page-contact" class="page-section hidden max-w-4xl mx-auto px-3.5 sm:px-6 py-8 sm:py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-navy-800 text-white rounded-2xl p-6 sm:p-8">
+                    <span class="text-gold-400 font-bold text-xs uppercase tracking-wider">Get In Touch</span>
+                    <h1 class="font-heading font-extrabold text-2xl sm:text-3xl mt-1 mb-3">Contact VRI EDUCATION</h1>
+                    <p class="text-slate-300 text-xs sm:text-sm leading-relaxed mb-5">Have questions about our courses? Contact us using the details below.</p>
+                    <div class="space-y-3 text-xs sm:text-sm">
+                        <div class="bg-navy-700/70 p-3.5 rounded-xl">
+                            <span class="text-gold-400 font-bold block text-[11px] uppercase">YouTube Channel</span>
+                            <a href="https://youtube.com/@vri_education?si=spClQRxJIBSsFMvn" target="_blank" rel="noopener" class="text-slate-200 hover:text-gold-400 underline mt-1 block">youtube.com/@vri_education</a>
+                        </div>
+                        <div class="bg-navy-700/70 p-3.5 rounded-xl">
+                            <span class="text-gold-400 font-bold block text-[11px] uppercase">Official Email</span>
+                            <span class="text-slate-200 mt-1 block">[INSERT OFFICIAL EMAIL ADDRESS]</span>
+                        </div>
+                        <div class="bg-navy-700/70 p-3.5 rounded-xl">
+                            <span class="text-gold-400 font-bold block text-[11px] uppercase">Social Media / Phone</span>
+                            <span class="text-slate-200 mt-1 block">[INSERT CONTACT / SOCIAL LINK]</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-200">
+                    <h2 class="font-heading font-bold text-lg sm:text-xl text-navy-900 mb-4">Send a Message</h2>
+                    <form onsubmit="event.preventDefault(); document.getElementById('contact-status').classList.remove('hidden');" class="space-y-3.5">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Name</label>
+                            <input type="text" required placeholder="Enter your name" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Your Email</label>
+                            <input type="email" required placeholder="Enter your email" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 uppercase mb-1">Message</label>
+                            <textarea rows="3" required placeholder="Write your message..." class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-electric-500 active:scale-95 text-white font-heading font-bold py-3.5 rounded-xl shadow transition">Send Message</button>
+                        <p id="contact-status" class="hidden text-xs text-emerald-600 font-semibold text-center mt-2">Message recorded. Connect your email/form service to receive live messages.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ==================== MOBILE BOTTOM APP NAVIGATION BAR ==================== -->
+    <nav class="md:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-slate-200 shadow-[0_-4px_15px_rgba(0,0,0,0.06)] grid grid-cols-4 h-16">
+        <button onclick="navigateTo('home')" class="flex flex-col items-center justify-center text-navy-800 active:bg-slate-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            <span class="text-[10px] font-bold mt-0.5">Home</span>
+        </button>
+        <button onclick="navigateTo('courses')" class="flex flex-col items-center justify-center text-electric-600 active:bg-slate-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            <span class="text-[10px] font-bold mt-0.5">Courses</span>
+        </button>
+        <button onclick="navigateTo('materials')" class="flex flex-col items-center justify-center text-navy-800 active:bg-slate-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+            <span class="text-[10px] font-bold mt-0.5">PDF Notes</span>
+        </button>
+        <button onclick="navigateTo('practice')" class="flex flex-col items-center justify-center text-navy-800 active:bg-slate-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <span class="text-[10px] font-bold mt-0.5">MCQ Test</span>
+        </button>
+    </nav>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-navy-900 text-slate-300 border-t border-navy-700 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div>
+                    <div class="flex items-center gap-2.5 mb-2.5">
+                        <img src="logo.png" alt="VRI EDUCATION" onerror="this.style.display='none'" class="w-9 h-9 rounded-full border border-gold-500">
+                        <span class="font-heading font-extrabold text-base text-white">VRI <span class="text-gold-500">EDUCATION</span></span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Zero to Confident — A free multi-course educational platform providing structured video lessons, PDF study materials, and interactive MCQ tests.</p>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-white text-xs uppercase tracking-wider mb-2.5">Quick Links</h3>
+                    <ul class="space-y-1.5 text-xs sm:text-sm">
+                        <li><a href="#" onclick="navigateTo('home'); return false;" class="hover:text-gold-400">Home</a></li>
+                        <li><a href="#" onclick="navigateTo('courses'); return false;" class="hover:text-gold-400">All Courses</a></li>
+                        <li><a href="#" onclick="navigateTo('materials'); return false;" class="hover:text-gold-400">Free Study Material</a></li>
+                        <li><a href="#" onclick="navigateTo('practice'); return false;" class="hover:text-gold-400">MCQ Tests</a></li>
+                        <li><a href="#" onclick="navigateTo('about'); return false;" class="hover:text-gold-400">About Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-heading font-bold text-white text-xs uppercase tracking-wider mb-2.5">Connect With Us</h3>
+                    <ul class="space-y-1.5 text-xs sm:text-sm text-slate-400">
+                        <li>YouTube: <a href="https://youtube.com/@vri_education?si=spClQRxJIBSsFMvn" target="_blank" rel="noopener" class="text-gold-400 hover:underline">@vri_education</a></li>
+                        <li>Email: [INSERT EMAIL ADDRESS]</li>
+                        <li>Contact: [INSERT CONTACT INFO]</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-navy-700 mt-6 pt-5 text-center text-xs text-slate-400">
+                &copy; <span id="year"></span> VRI EDUCATION. All Rights Reserved. 100% Free Educational Platform.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== PLATFORM DATA & ENGINE ==================== -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        /* GOOGLE SHEETS LIVE SYNC (Videos + PDFs + Practice + MCQs) */
+        const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMWgHgXCJ4WgtUaI_BI3k5KR1BAIseygDEADxTwPVlAjxMC2scR6OD--FGVpkuW0RQdMZr5mD4qEyC/pub?output=csv";
+
+        const LESSONS_LINKS = {
+            1: { title: "DAY 1 – ", youtube: "", pdf: "", practiceRaw: "", mcqRaw: "" },
+            2: { title: "DAY 2 – ", youtube: "", pdf: "", practiceRaw: "", mcqRaw: "" },
+            3: { title: "DAY 3 – ", youtube: "", pdf: "", practiceRaw: "", mcqRaw: "" },
+            4: { title: "DAY 4 – ", youtube: "", pdf: "", practiceRaw: "", mcqRaw: "" },
+            5: { title: "DAY 5 – ", youtube: "", pdf: "", practiceRaw: "", mcqRaw: "" }
+        };
+
+        async function syncFromGoogleSheet() {
+            if (!GOOGLE_SHEET_CSV_URL) return;
+            try {
+                const res = await fetch(GOOGLE_SHEET_CSV_URL);
+                const csvText = await res.text();
+                const rows = csvText.split(/\r?\n/).slice(1);
+                rows.forEach(row => {
+                    if (!row.trim()) return;
+                    const cols = row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(c => c.replace(/^"|"$/g, '').trim());
+                    const dayNum = parseInt(cols[0]);
+                    if (!isNaN(dayNum) && dayNum >= 1 && dayNum <= 90) {
+                        LESSONS_LINKS[dayNum] = {
+                            title: cols[1] || `DAY ${dayNum} – Lesson ${dayNum}`,
+                            youtube: cols[2] || "",
+                            pdf: cols[3] || "",
+                            practiceRaw: cols[4] || "",
+                            mcqRaw: cols[5] || ""
+                        };
+                    }
+                });
+                renderHomeCourses();
+                if (!document.getElementById('page-courses').classList.contains('hidden')) renderAllCourses();
+                if (!document.getElementById('page-course-player').classList.contains('hidden')) openCoursePlayer(currentCourseId, currentDay);
+            } catch (err) {
+                console.warn("Google Sheet sync error:", err);
+            }
+        }
+
+        function extractYouTubeID(input) {
+            if (!input) return "";
+            const trimmed = input.trim();
+            const regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+            const match = trimmed.match(regExp);
+            return match ? match[1] : trimmed;
+        }
+
+        function getAutoThumbnailUrl(youtubeInput) {
+            const vidId = extractYouTubeID(youtubeInput);
+            return vidId ? `https://img.youtube.com/vi/${vidId}/hqdefault.jpg` : "";
+        }
+
+        const COURSES_DATA = [
+            {
+                id: 'english-90',
+                title: '90 Days English Learning Course',
+                category: 'Language',
+                duration: '90 Days (90 Lessons)',
+                status: 'active',
+                bannerTop: '90 DAYS ENGLISH',
+                bannerBottom: 'ZERO TO CONFIDENT',
+                description: 'Learn English from zero with daily YouTube lessons, PDF study material, practice exercises, and MCQ tests.',
+                modules: [
+                    { id: 1, title: '1. Basic English (Day 1–15)', start: 1, end: 15 },
+                    { id: 2, title: '2. Basic Grammar (Day 16–30)', start: 16, end: 30 },
+                    { id: 3, title: '3. Tenses & Sentence Making (Day 31–45)', start: 31, end: 45 },
+                    { id: 4, title: '4. Vocabulary & Daily English (Day 46–60)', start: 46, end: 60 },
+                    { id: 5, title: '5. Speaking & Conversation (Day 61–75)', start: 61, end: 75 },
+                    { id: 6, title: '6. Confidence & Fluency Practice (Day 76–90)', start: 76, end: 90 }
+                ]
+            },
+            {
+                id: 'upcoming-course',
+                title: 'Upcoming Subject Course',
+                category: 'Upcoming',
+                duration: 'Coming Soon',
+                status: 'upcoming',
+                bannerTop: 'NEW COURSE',
+                bannerBottom: 'COMING SOON ON VRI EDUCATION',
+                description: 'VRI EDUCATION is expanding into new subjects. Structured video lessons, PDFs, and MCQ tests will be added here.',
+                modules: []
+            }
+        ];
+
+        function getLessonData(dayNumber) {
+            let moduleId = 1;
+            let moduleName = "1. Basic English (Day 1–15)";
+            if (dayNumber >= 16 && dayNumber <= 30) { moduleId = 2; moduleName = "2. Basic Grammar (Day 16–30)"; }
+            else if (dayNumber >= 31 && dayNumber <= 45) { moduleId = 3; moduleName = "3. Tenses & Sentence Making (Day 31–45)"; }
+            else if (dayNumber >= 46 && dayNumber <= 60) { moduleId = 4; moduleName = "4. Vocabulary & Daily English (Day 46–60)"; }
+            else if (dayNumber >= 61 && dayNumber <= 75) { moduleId = 5; moduleName = "5. Speaking & Conversation (Day 61–75)"; }
+            else if (dayNumber >= 76) { moduleId = 6; moduleName = "6. Confidence & Fluency Practice (Day 76–90)"; }
+
+            const slot = LESSONS_LINKS[dayNumber] || { title: `DAY ${dayNumber} – `, youtube: "", pdf: "", practiceRaw: "", mcqRaw: "" };
+            const cleanTitle = slot.title.trim().endsWith("–") ? `${slot.title.trim()} Lesson ${dayNumber}` : slot.title;
+            const vidId = extractYouTubeID(slot.youtube);
+            const autoThumb = getAutoThumbnailUrl(slot.youtube);
+
+            let practiceList = [
+                `Practice exercise 1 for Day ${dayNumber}.`,
+                `Practice exercise 2 for Day ${dayNumber}.`
+            ];
+            if (slot.practiceRaw) {
+                practiceList = slot.practiceRaw.split('|').map(item => item.trim()).filter(Boolean);
+            }
+
+            let mcqList = [
+                { q: `Sample MCQ Question for Day ${dayNumber}:`, options: ["Option A", "Option B", "Option C", "Option D"], answer: 0 }
+            ];
+            if (slot.mcqRaw) {
+                const parsedMcqs = slot.mcqRaw.split(';;').map(qBlock => {
+                    const parts = qBlock.split('|').map(p => p.trim());
+                    if (parts.length >= 6) {
+                        const ansIndex = Math.max(0, Math.min(3, (parseInt(parts[5]) || 1) - 1));
+                        return {
+                            q: parts[0],
+                            options: [parts[1], parts[2], parts[3], parts[4]],
+                            answer: ansIndex
+                        };
+                    }
+                    return null;
+                }).filter(Boolean);
+                if (parsedMcqs.length > 0) mcqList = parsedMcqs;
+            }
+
+            return {
+                day: dayNumber,
+                moduleId,
+                moduleName,
+                title: cleanTitle,
+                youtubeEmbedId: vidId,
+                thumbnailUrl: autoThumb,
+                pdfUrl: (slot.pdf || "").trim(),
+                intro: `Day ${dayNumber} of 90 Days English Learning Course. Watch the video lesson, read the PDF study material, and solve the MCQ test.`,
+                practice: practiceList,
+                mcqs: mcqList
+            };
+        }
+
+        let currentCategory = 'All';
+        let currentCourseId = 'english-90';
+        let currentDay = 1;
+        let openAccordionId = 1;
+
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
+            const target = document.getElementById('page-' + pageId);
+            if (target) target.classList.remove('hidden');
+            window.scrollTo(0, 0);
+
+            if (pageId === 'home') renderHomeCourses();
+            if (pageId === 'courses') renderAllCourses();
+            if (pageId === 'materials') renderStudyMaterials();
+            if (pageId === 'practice') renderPracticeHub();
+            if (pageId === 'certificate') drawCertificate();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        function createCourseCardHTML(course) {
+            const isUpcoming = course.status === 'upcoming';
+            const courseThumb = (course.id === 'english-90') ? getAutoThumbnailUrl(LESSONS_LINKS[1]?.youtube) : "";
+
+            const bannerHTML = courseThumb 
+                ? `<div class="relative h-44 sm:h-48 bg-navy-900 overflow-hidden">
+                       <img src="${courseThumb}" alt="${course.title}" class="w-full h-full object-cover">
+                       <div class="absolute inset-0 bg-gradient-to-t from-navy-900/90 via-navy-900/30 to-transparent p-4 sm:p-5 flex flex-col justify-between">
+                           <div class="flex justify-between items-start">
+                               <span class="bg-gold-500 text-navy-900 font-extrabold text-[10px] sm:text-[11px] px-2.5 py-1 rounded uppercase">VRI EDUCATION</span>
+                               <span class="bg-black/60 text-white text-[11px] px-2.5 py-1 rounded-full">${course.duration}</span>
+                           </div>
+                           <div>
+                               <h4 class="font-heading font-extrabold text-lg sm:text-xl text-white leading-tight">${course.bannerTop}</h4>
+                               <p class="text-gold-400 font-bold text-[11px] tracking-widest mt-0.5">${course.bannerBottom}</p>
+                           </div>
+                       </div>
+                   </div>`
+                : `<div class="bg-gradient-to-br from-navy-900 via-navy-800 to-electric-600 p-5 h-44 sm:h-48 flex flex-col justify-between">
+                       <div class="flex justify-between items-start">
+                           <span class="bg-gold-500 text-navy-900 font-extrabold text-[10px] sm:text-[11px] px-2.5 py-1 rounded uppercase">VRI EDUCATION</span>
+                           <span class="bg-white/10 text-white text-[11px] px-2.5 py-1 rounded-full">${course.duration}</span>
+                       </div>
+                       <div>
+                           <h4 class="font-heading font-extrabold text-xl sm:text-2xl text-white leading-tight">${course.bannerTop}</h4>
+                           <p class="text-gold-400 font-bold text-[11px] tracking-widest mt-1">${course.bannerBottom}</p>
+                       </div>
+                   </div>`;
+
+            return `
+                <div class="bg-white rounded-2xl shadow-sm hover:shadow-lg border border-slate-200 overflow-hidden transition flex flex-col">
+                    ${bannerHTML}
+                    <div class="p-5 sm:p-6 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2.5">
+                                <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-md">${course.category}</span>
+                                <span class="text-xs text-slate-500 font-medium">${course.duration}</span>
+                            </div>
+                            <h3 class="font-heading font-bold text-lg sm:text-xl text-navy-900 mb-1.5">${course.title}</h3>
+                            <p class="text-slate-600 text-xs sm:text-sm mb-4">${course.description}</p>
+                        </div>
+                        <div class="pt-3.5 border-t border-slate-100">
+                            <div class="mb-3.5">
+                                <span class="font-heading font-extrabold text-lg sm:text-xl text-navy-900">₹ 0.00</span>
+                                <span class="text-xs font-bold text-emerald-600 ml-1">| 100% FREE</span>
+                            </div>
+                            ${isUpcoming 
+                                ? `<button disabled class="w-full bg-slate-200 text-slate-500 font-bold py-3.5 rounded-xl text-sm cursor-not-allowed">Coming Soon</button>`
+                                : `<button onclick="openCoursePlayer('${course.id}', 1)" class="w-full bg-navy-800 active:scale-95 hover:bg-electric-500 text-white font-heading font-bold py-3.5 rounded-xl text-sm transition shadow">Start Course &rarr;</button>`
+                            }
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderHomeCourses() {
+            document.getElementById('home-courses-grid').innerHTML = COURSES_DATA.map(createCourseCardHTML).join('');
+        }
+
+        function setCourseCategory(cat, btnEl) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                btn.classList.remove('bg-navy-800', 'text-white');
+                btn.classList.add('bg-slate-100', 'text-slate-700');
+            });
+            btnEl.classList.remove('bg-slate-100', 'text-slate-700');
+            btnEl.classList.add('bg-navy-800', 'text-white');
+            renderAllCourses();
+        }
+
+        function renderAllCourses() {
+            const query = (document.getElementById('course-search')?.value || '').toLowerCase();
+            const filtered = COURSES_DATA.filter(c => {
+                const matchCat = currentCategory === 'All' || c.category === currentCategory;
+                const matchText = c.title.toLowerCase().includes(query) || c.description.toLowerCase().includes(query);
+                return matchCat && matchText;
+            });
+            document.getElementById('all-courses-grid').innerHTML = filtered.map(createCourseCardHTML).join('');
+        }
+
+        /* ==================== COURSE PLAYER (CLEAN 6 MODULES ONLY) ==================== */
+        function openCoursePlayer(courseId, dayNum) {
+            currentCourseId = courseId;
+            currentDay = dayNum;
+            const lesson = getLessonData(dayNum);
+            openAccordionId = lesson.moduleId;
+
+            navigateTo('course-player');
+
+            const videoBox = document.getElementById('player-video-box');
+            if (lesson.youtubeEmbedId) {
+                videoBox.innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${lesson.youtubeEmbedId}" title="${lesson.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            } else {
+                videoBox.innerHTML = `
+                    <div class="text-center p-5 text-slate-300">
+                        <div class="w-14 h-14 rounded-full bg-white/15 flex items-center justify-center mx-auto mb-2.5 text-white text-xl shadow">&#9654;</div>
+                        <p class="font-heading font-bold text-white text-sm sm:text-lg">Day ${dayNum} Video Lesson</p>
+                        <p class="text-[11px] sm:text-xs text-slate-400 mt-1">Add YouTube link in Google Sheet</p>
+                    </div>
+                `;
+            }
+
+            document.getElementById('player-active-badge').textContent = `DAY ${dayNum} • ${lesson.moduleName}`;
+            document.getElementById('player-lesson-title').textContent = lesson.title;
+
+            const prevBtn = document.getElementById('player-prev-btn');
+            const nextBtn = document.getElementById('player-next-btn');
+            prevBtn.onclick = () => { if (dayNum > 1) openCoursePlayer(courseId, dayNum - 1); };
+            nextBtn.onclick = () => { if (dayNum < 90) openCoursePlayer(courseId, dayNum + 1); };
+            prevBtn.style.opacity = dayNum > 1 ? '1' : '0.4';
+            nextBtn.style.opacity = dayNum < 90 ? '1' : '0.4';
+
+            renderAccordionPlaylist();
+        }
+
+        function toggleAccordionModule(modId) {
+            openAccordionId = (openAccordionId === modId) ? null : modId;
+            renderAccordionPlaylist();
+        }
+
+        function renderAccordionPlaylist() {
+            const course = COURSES_DATA.find(c => c.id === currentCourseId);
+            const container = document.getElementById('accordion-modules-container');
+
+            container.innerHTML = course.modules.map(mod => {
+                const isOpen = openAccordionId === mod.id;
+                let lessonsHTML = '';
+
+                if (isOpen) {
+                    for (let d = mod.start; d <= mod.end; d++) {
+                        const l = getLessonData(d);
+                        const isActive = d === currentDay;
+
+                        const thumbBoxHTML = l.thumbnailUrl
+                            ? `<div class="w-24 h-14 rounded-lg bg-navy-900 shrink-0 relative overflow-hidden border border-slate-300">
+                                   <img src="${l.thumbnailUrl}" alt="Day ${d}" class="w-full h-full object-cover">
+                                   <span class="absolute top-1 left-1 bg-navy-900/85 text-gold-400 text-[8px] font-extrabold px-1 rounded">DAY ${d}</span>
+                               </div>`
+                            : `<div class="w-24 h-14 rounded-lg bg-navy-900 shrink-0 flex flex-col justify-between p-1.5 relative overflow-hidden">
+                                   <span class="text-[9px] font-extrabold text-gold-400">DAY ${d}</span>
+                                   <span class="self-end bg-emerald-600 text-white text-[8px] font-bold px-1.5 py-0.5 rounded">FREE</span>
+                               </div>`;
+
+                        lessonsHTML += `
+                            <div onclick="openCoursePlayer('${currentCourseId}', ${d})" class="flex items-center gap-3 p-3 rounded-xl cursor-pointer active:scale-[0.99] transition border ${isActive ? 'bg-blue-50 border-electric-500 border-l-4' : 'bg-white border-slate-200'}">
+                                ${thumbBoxHTML}
+                                <div class="min-w-0 flex-1">
+                                    <h4 class="font-heading font-bold text-xs sm:text-sm text-navy-900 line-clamp-2 leading-snug">${l.title}</h4>
+                                    <p class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5">VRI EDUCATION &bull; Free</p>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+
+                return `
+                    <div class="bg-slate-100 rounded-xl border border-slate-200 overflow-hidden">
+                        <button onclick="toggleAccordionModule(${mod.id})" class="w-full px-4 py-4 flex items-center justify-between text-left font-heading font-bold text-xs sm:text-sm text-navy-900 active:bg-slate-200 transition">
+                            <span>${mod.title}</span>
+                            <svg class="w-4 h-4 text-navy-800 shrink-0 transform transition ${isOpen ? 'rotate-180' : ''}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </button>
+                        ${isOpen ? `<div class="p-2.5 sm:p-3 bg-white space-y-2.5 max-h-96 overflow-y-auto border-t border-slate-200">${lessonsHTML}</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+        }
+
+        /* ==================== DEDICATED PAGES FOR PDF, PRACTICE & MCQ ==================== */
+        function openLessonPDFPage(dayNum) {
+            currentDay = dayNum;
+            const lesson = getLessonData(dayNum);
+            navigateTo('single-pdf');
+
+            document.getElementById('single-pdf-badge').textContent = `DAY ${dayNum} • STUDY MATERIAL PDF`;
+            document.getElementById('single-pdf-title').textContent = lesson.title;
+            document.getElementById('single-pdf-intro').textContent = lesson.intro;
+
+            const btnContainer = document.getElementById('single-pdf-btn-container');
+            btnContainer.innerHTML = lesson.pdfUrl
+                ? `<a href="${lesson.pdfUrl}" target="_blank" rel="noopener" class="inline-block w-full sm:w-auto bg-gold-500 hover:bg-gold-400 active:scale-95 text-navy-900 font-heading font-bold text-sm px-8 py-4 rounded-xl shadow-lg transition">Open / Download Day ${dayNum} PDF &rarr;</a>`
+                : `<span class="inline-block bg-white/10 text-slate-200 text-xs font-semibold px-5 py-3.5 rounded-xl border border-white/20">[PDF Link Pending – Add Google Drive PDF link in Google Sheet]</span>`;
+        }
+
+        function openLessonPracticePage(dayNum) {
+            currentDay = dayNum;
+            const lesson = getLessonData(dayNum);
+            navigateTo('single-practice');
+
+            document.getElementById('single-prac-badge').textContent = `DAY ${dayNum} • PRACTICE QUESTIONS`;
+            document.getElementById('single-prac-title').textContent = lesson.title;
+
+            document.getElementById('single-prac-list').innerHTML = lesson.practice.map((p, i) => `
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm text-slate-800 flex gap-3 leading-relaxed">
+                    <span class="font-bold text-electric-500">${i + 1}.</span>
+                    <span>${p}</span>
+                </div>
+            `).join('');
+        }
+
+        function openLessonMCQPage(dayNum) {
+            currentDay = dayNum;
+            const lesson = getLessonData(dayNum);
+            navigateTo('single-mcq');
+
+            document.getElementById('single-mcq-badge').textContent = `DAY ${dayNum} • MCQ TEST`;
+            document.getElementById('single-mcq-title').textContent = lesson.title;
+            document.getElementById('single-mcq-score').classList.add('hidden');
+
+            document.getElementById('single-mcq-list').innerHTML = lesson.mcqs.map((mcq, qIdx) => `
+                <div class="mcq-item p-4 rounded-xl border border-slate-200 bg-slate-50/50" data-correct="${mcq.answer}">
+                    <p class="font-bold text-navy-900 text-xs sm:text-sm mb-3">${qIdx + 1}. ${mcq.q}</p>
+                    <div class="space-y-2.5">
+                        ${mcq.options.map((opt, oIdx) => `
+                            <label class="mcq-option flex items-center gap-3 p-3.5 rounded-xl border border-slate-200 bg-white active:bg-slate-100 cursor-pointer text-xs sm:text-sm">
+                                <input type="radio" name="smcq_${qIdx}" value="${oIdx}" class="w-4 h-4 text-electric-500">
+                                <span class="leading-snug">${opt}</span>
+                            </label>
+                        `).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function submitSingleMCQ() {
+            const items = document.querySelectorAll('#single-mcq-list .mcq-item');
+            let score = 0;
+            items.forEach((item, idx) => {
+                const correctIdx = parseInt(item.getAttribute('data-correct'));
+                const selected = item.querySelector(`input[name="smcq_${idx}"]:checked`);
+                const labels = item.querySelectorAll('.mcq-option');
+
+                labels.forEach((lbl, lIdx) => {
+                    lbl.classList.remove('border-emerald-500', 'bg-emerald-50', 'border-red-500', 'bg-red-50');
+                    if (lIdx === correctIdx) lbl.classList.add('border-emerald-500', 'bg-emerald-50', 'font-semibold');
+                });
+
+                if (selected) {
+                    const chosenIdx = parseInt(selected.value);
+                    if (chosenIdx === correctIdx) score++;
+                    else labels[chosenIdx].classList.add('border-red-500', 'bg-red-50');
+                }
+            });
+            const scoreBox = document.getElementById('single-mcq-score');
+            scoreBox.textContent = `Your Score: ${score} / ${items.length}`;
+            scoreBox.classList.remove('hidden');
+        }
+
+        /* ==================== DIRECTORY PAGES ==================== */
+        function renderStudyMaterials() {
+            let html = '';
+            for (let d = 1; d <= 90; d++) {
+                const lesson = getLessonData(d);
+                html += `
+                    <div class="p-4 sm:px-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div>
+                            <span class="text-[11px] font-bold text-electric-500 uppercase">Day ${d} PDF</span>
+                            <h3 class="font-bold text-navy-900 text-xs sm:text-sm mt-0.5">${lesson.title}</h3>
+                        </div>
+                        <div>
+                            ${lesson.pdfUrl 
+                                ? `<a href="${lesson.pdfUrl}" target="_blank" rel="noopener" class="block w-full sm:w-auto text-center bg-navy-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl">Open PDF &rarr;</a>`
+                                : `<button onclick="openLessonPDFPage(${d})" class="w-full sm:w-auto bg-slate-100 text-slate-700 text-xs font-semibold px-4 py-2.5 rounded-xl">View PDF Page</button>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }
+            document.getElementById('materials-list').innerHTML = html;
+        }
+
+        function renderPracticeHub() {
+            let html = '';
+            for (let d = 1; d <= 90; d++) {
+                const lesson = getLessonData(d);
+                html += `
+                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center justify-between gap-3">
+                        <div class="min-w-0">
+                            <span class="text-[11px] font-bold text-gold-600 uppercase">Day ${d} Quiz</span>
+                            <h3 class="font-heading font-bold text-xs sm:text-sm text-navy-900 truncate mt-0.5">${lesson.title}</h3>
+                        </div>
+                        <button onclick="openLessonMCQPage(${d})" class="bg-electric-500 active:scale-95 text-white text-xs font-bold px-4 py-2.5 rounded-xl shrink-0">Start Test</button>
+                    </div>
+                `;
+            }
+            document.getElementById('practice-hub-list').innerHTML = html;
+        }
+
+        /* ==================== END-OF-COURSE CERTIFICATE GENERATOR ==================== */
+        function drawCertificate() {
+            const canvas = document.getElementById('certificate-canvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const studentName = (document.getElementById('cert-student-name')?.value || '').trim() || "STUDENT NAME";
+
+            ctx.fillStyle = "#FFFFFF";
+            ctx.fillRect(0, 0, 1200, 850);
+
+            ctx.strokeStyle = "#0A192F";
+            ctx.lineWidth = 24;
+            ctx.strokeRect(24, 24, 1152, 802);
+
+            ctx.strokeStyle = "#D97706";
+            ctx.lineWidth = 5;
+            ctx.strokeRect(52, 52, 1096, 746);
+
+            ctx.fillStyle = "#0A192F";
+            ctx.fillRect(52, 52, 1096, 150);
+
+            ctx.fillStyle = "#FBBF24";
+            ctx.font = "bold 42px 'Plus Jakarta Sans', sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText("VRI EDUCATION", 600, 125);
+
+            ctx.fillStyle = "#E2E8F0";
+            ctx.font = "600 18px 'Inter', sans-serif";
+            ctx.fillText("ZERO TO CONFIDENT  •  ONLINE LEARNING PLATFORM", 600, 165);
+
+            ctx.fillStyle = "#0A192F";
+            ctx.font = "bold 54px 'Playfair Display', serif";
+            ctx.fillText("CERTIFICATE OF COMPLETION", 600, 290);
+
+            ctx.fillStyle = "#475569";
+            ctx.font = "500 24px 'Inter', sans-serif";
+            ctx.fillText("This is proudly presented to", 600, 355);
+
+            ctx.fillStyle = "#1D4ED8";
+            ctx.font = "bold 52px 'Playfair Display', serif";
+            ctx.fillText(studentName.toUpperCase(), 600, 435);
+
+            ctx.strokeStyle = "#FBBF24";
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            ctx.moveTo(280, 455);
+            ctx.lineTo(920, 455);
+            ctx.stroke();
+
+            ctx.fillStyle = "#334155";
+            ctx.font = "500 23px 'Inter', sans-serif";
+            ctx.fillText("for successfully completing the", 600, 515);
+
+            ctx.fillStyle = "#0A192F";
+            ctx.font = "bold 34px 'Plus Jakarta Sans', sans-serif";
+            ctx.fillText("90 DAYS ENGLISH LEARNING COURSE", 600, 568);
+
+            ctx.fillStyle = "#64748B";
+            ctx.font = "400 20px 'Inter', sans-serif";
+            ctx.fillText("Demonstrating dedication in Grammar, Vocabulary, Speaking & Fluency", 600, 612);
+
+            const today = new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+            ctx.textAlign = "left";
+            ctx.fillStyle = "#0A192F";
+            ctx.font = "bold 20px 'Inter', sans-serif";
+            ctx.fillText("Date: " + today, 130, 730);
+
+            ctx.beginPath();
+            ctx.arc(600, 715, 48, 0, Math.PI * 2);
+            ctx.fillStyle = "#FBBF24";
+            ctx.fill();
+            ctx.strokeStyle = "#0A192F";
+            ctx.lineWidth = 4;
+            ctx.stroke();
+            ctx.fillStyle = "#0A192F";
+            ctx.textAlign = "center";
+            ctx.font = "bold 16px 'Plus Jakarta Sans', sans-serif";
+            ctx.fillText("VRI", 600, 712);
+            ctx.font = "bold 11px 'Inter', sans-serif";
+            ctx.fillText("VERIFIED", 600, 730);
+
+            ctx.textAlign = "right";
+            ctx.fillStyle = "#0A192F";
+            ctx.font = "bold 20px 'Inter', sans-serif";
+            ctx.fillText("VRI EDUCATION", 1070, 715);
+            ctx.fillStyle = "#64748B";
+            ctx.font = "500 16px 'Inter', sans-serif";
+            ctx.fillText("Authorized Platform", 1070, 740);
+        }
+
+        function downloadCertificate() {
+            drawCertificate();
+            const canvas = document.getElementById('certificate-canvas');
+            const studentName = (document.getElementById('cert-student-name')?.value || 'Student').trim().replace(/\s+/g, '_');
+            const link = document.createElement('a');
+            link.download = `VRI_EDUCATION_Certificate_${studentName}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+
+        renderHomeCourses();
+        syncFromGoogleSheet();
+    </script>
+</body>
+</html>
